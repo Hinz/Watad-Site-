@@ -1,336 +1,1254 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>سوق وتد - المستلزمات الدراسية</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Watad Platform - Strategic Growth Presentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
     body {
-      font-family: 'Cairo', sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-    }
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow: hidden;
+        }
 
-    header {
-      background: linear-gradient(90deg, #4f46e5, #6366f1);
-      color: #fff;
-      padding: 1.5rem 2rem;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        .presentation-wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-    header .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+        .slide-container {
+            width: 100%;
       max-width: 1200px;
-      margin: 0 auto;
-    }
+            height: 100%;
+            max-height: 700px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
+        .slide {
+            width: 100%;
+            height: 100%;
+            padding: 50px;
+            overflow-y: auto;
+            display: none;
+            flex-direction: column;
+            animation: slideIn 0.6s ease-out;
+        }
 
-    .add-btn {
-      background: #10b981;
-      border: none;
-      color: #fff;
-      font-weight: 600;
-      padding: 0.7rem 1.4rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+        .slide.active {
+            display: flex;
+        }
 
-    .add-btn:hover { background: #059669; }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    .hero {
-      text-align: center;
-      padding: 4rem 1rem 3rem;
-      background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      color: white;
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      position: relative;
-    }
+        .slide::-webkit-scrollbar {
+            width: 6px;
+        }
 
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
-    }
+        .slide::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-    }
+        .slide::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 3px;
+        }
 
-    .hero h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 0.6rem;
-    }
+        .slide::-webkit-scrollbar-thumb:hover {
+            background: #5a6fd8;
+        }
 
-    .hero p {
-      font-size: 1.2rem;
-      opacity: 0.95;
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
       margin-bottom: 1.5rem;
-    }
+            text-align: center;
+        }
 
-    .cta-start {
-      background: #facc15;
-      color: #1e293b;
-      border: none;
-      padding: 0.9rem 1.6rem;
-      border-radius: 8px;
+        h2 {
+            font-size: 2.2rem;
+            color: #667eea;
       font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 1rem;
-    }
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
 
-    .cta-start:hover { background: #eab308; }
+        h3 {
+            font-size: 1.4rem;
+            color: #764ba2;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .filters {
-      max-width: 1000px;
-      margin: 2rem auto;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      padding: 1.5rem;
-    }
+        p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
 
-    .filters input, .filters select {
-      padding: 0.8rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #d1d5db;
-      min-width: 180px;
-      font-size: 0.95rem;
-      transition: 0.2s;
-    }
+        ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
 
-    .filters input:focus, .filters select:focus {
-      border-color: #6366f1;
-      outline: none;
-    }
+        li {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 0.8rem;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
 
-    .filters button {
-      background: #4f46e5;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      padding: 0.8rem 1.4rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s;
-    }
+        li:before {
+            content: "→";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
 
-    .filters button:hover { background: #4338ca; }
+        .subtitle {
+            font-size: 1.4rem;
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
 
-    .ad-banner {
-      max-width: 1100px;
-      margin: 2rem auto;
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
 
-    .ad-banner img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      filter: brightness(70%);
-    }
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 1.5rem 0;
+        }
 
-    .ad-banner .content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+        .card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .card h4 {
+            font-size: 1.2rem;
+            color: #667eea;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 1.5rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
       text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
     }
 
-    .ad-banner h2 {
-      font-size: 1.8rem;
+        .stat-number {
+            font-size: 2.2rem;
       font-weight: 800;
-      margin-bottom: 0.5rem;
-    }
+            color: #667eea;
+            display: block;
+        }
 
-    .ad-banner p {
-      font-size: 1rem;
-      margin-bottom: 1rem;
-    }
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 5px;
+        }
 
-    .ad-banner button {
-      background: #facc15;
-      color: #1e293b;
-      border: none;
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+            background: rgba(102, 126, 234, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .impact-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 1.5rem 0;
       border-radius: 8px;
-      padding: 0.8rem 1.6rem;
+            position: relative;
+        }
+
+        .impact-box::before {
+            content: '💡';
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .impact-box strong {
+            color: #2e7d32;
+            font-weight: 700;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin: 1.5rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #667eea;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #667eea;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
       font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+            margin-right: 10px;
+        }
 
-    .ad-banner button:hover { background: #eab308; }
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-      transition: 0.25s ease;
-      padding: 1.2rem;
-    }
-
-    .card:hover { transform: translateY(-4px); }
-
-    .card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #1e293b;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 0.8rem;
-    }
-
-    .price {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #10b981;
-      margin-bottom: 0.5rem;
-    }
-
-    .buy-btn {
-      background: #3b82f6;
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
-      border-radius: 6px;
-      padding: 0.6rem 1rem;
+            padding: 12px 20px;
+            border-radius: 10px;
       cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .nav-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 3px 10px rgba(189, 195, 199, 0.3);
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            color: #667eea;
       font-weight: 600;
-      transition: 0.2s;
-    }
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .buy-btn:hover { background: #2563eb; }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            z-index: 1001;
+        }
 
-    footer {
-      background: #1e293b;
-      color: #e2e8f0;
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      margin-top: 3rem;
-    }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.5s ease;
+            border-radius: 0 2px 2px 0;
+        }
 
-    footer p { font-size: 0.9rem; }
+        .demo-link {
+            display: inline-block;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #1976d2;
+            font-family: monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            border: 2px solid #e3f2fd;
+            transition: all 0.3s ease;
+        }
+
+        .demo-link:hover {
+            background: #e3f2fd;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .presentation-wrapper {
+                padding: 15px;
+            }
+            
+            .slide {
+                padding: 40px 30px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.9rem;
+            }
+            
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 1.6rem; }
-      .filters { padding: 1rem; }
-      .ad-banner img { height: 200px; }
+            .presentation-wrapper {
+                padding: 10px;
+            }
+            
+            .slide-container {
+                border-radius: 15px;
+            }
+            
+            .slide {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+            
+            h3 {
+                font-size: 1.2rem;
+            }
+            
+            p, li {
+                font-size: 1rem;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .navigation {
+                bottom: 20px;
+                right: 20px;
+                gap: 10px;
+            }
+            
+            .nav-btn {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .slide-counter {
+                bottom: 20px;
+                left: 20px;
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .presentation-wrapper {
+                padding: 5px;
+            }
+            
+            .slide {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .section-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <div class="logo">وتد</div>
-      <button class="add-btn">+ أضف إعلانك</button>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
     </div>
-  </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>سوق وتد للمستلزمات الدراسية</h1>
-      <p>ابحث عن الكتب، الزي المدرسي، المشاريع، أو الشرائح بسهولة</p>
-      <button class="cta-start">ابدأ ببيع منتجاتك الآن</button>
+    <div class="presentation-wrapper">
+        <div class="slide-container">
+            <!-- Slide 1: Title -->
+            <div class="slide active">
+                <h1><i class="fas fa-rocket"></i> Watad Platform</h1>
+                <p class="subtitle">Comprehensive Digital Transformation Strategy</p>
+                <div class="stats-grid" style="margin-top: 40px;">
+                    <div class="stat-card">
+                        <span class="stat-number">15+</span>
+                        <div class="stat-label">Strategic Initiatives</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">4</span>
+                        <div class="stat-label">Implementation Phases</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">7</span>
+                        <div class="stat-label">New Revenue Streams</div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 1.1rem;">
+                    <i class="fas fa-calendar-alt"></i> Strategic Roadmap for Growth & Innovation
+                </p>
+                <p style="text-align: center; color: #7f8c8d; font-weight: 500;">October 2025</p>
+            </div>
+
+            <!-- Slide 2: Current Challenges -->
+            <div class="slide">
+                <h2><i class="fas fa-exclamation-triangle"></i> Current Challenges</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4><i class="fas fa-palette"></i> Outdated Design</h4>
+                        <p>Website feels dated and lacks modern appeal, directly impacting user trust and engagement metrics</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-eye-slash"></i> Hidden Value Proposition</h4>
+                        <p>Teachers (our key differentiator) are not prominently featured, missing crucial trust-building opportunities</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-sitemap"></i> Poor Information Architecture</h4>
+                        <p>Critical content like Watad Library buried in third scroll position, reducing discoverability</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-mouse-pointer"></i> Weak Call-to-Actions</h4>
+                        <p>Limited conversion opportunities and unclear user journey paths throughout the platform</p>
+                    </div>
+                </div>
+                <div class="impact-box">
+                    <strong>Business Impact:</strong> These issues result in 40% lower conversion rates, reduced user engagement, and significant missed revenue opportunities across all user segments.
+                </div>
+            </div>
+
+            <!-- Slide 3: Current Platform Performance -->
+            <div class="slide">
+                <h2><i class="fas fa-chart-bar"></i> Current Platform Performance</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4><i class="fas fa-users"></i> User Analytics Overview</h4>
+                        <div class="stats-grid" style="margin: 15px 0;">
+                            <div class="stat-card">
+                                <span class="stat-number">18.8M</span>
+                                <div class="stat-label">Total Page Views</div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">2.0M</span>
+                                <div class="stat-label">Unique Users</div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">9.29</span>
+                                <div class="stat-label">Avg Pages/Session</div>
+                            </div>
+                        </div>
+                        <p>Strong foundation with significant traffic, but conversion optimization needed</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-mobile-alt"></i> Mobile User Experience</h4>
+                        <div style="background: #f8fafc; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 10px;">Current Mobile Interface:</p>
+                            <ul style="font-size: 0.9rem; color: #64748b;">
+                                <li>Arabic-first design with RTL support</li>
+                                <li>Teacher profiles and course listings</li>
+                                <li>Basic navigation structure</li>
+                                <li>Limited interactive elements</li>
+                            </ul>
+                        </div>
+                        <p>Mobile interface exists but lacks modern UX patterns and engagement features</p>
+                    </div>
+                </div>
+                <h3><span class="section-number">📊</span><i class="fas fa-trophy"></i> Top Performing Content</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <h4>Homepage</h4>
+                        <p><strong>1.2M views</strong> (6.39%)</p>
+                        <p>470K users with 2.56 avg session</p>
+                    </div>
+                    <div class="card">
+                        <h4>Physics Content</h4>
+                        <p><strong>1.1M views</strong> (6.01%)</p>
+                        <p>High engagement in science subjects</p>
+                    </div>
+                    <div class="card">
+                        <h4>Math Resources</h4>
+                        <p><strong>1.0M views</strong> (5.66%)</p>
+                        <p>Strong demand for mathematics content</p>
+                    </div>
+                </div>
+                <div class="impact-box">
+                    <strong>Opportunity:</strong> With 18.8M page views and 2M users, we have a strong foundation. The challenge is converting this traffic into engaged, paying users through better UX and strategic CTAs.
+                </div>
+            </div>
+
+            <!-- Slide 4: Current Mobile Interface Analysis -->
+            <div class="slide">
+                <h2><i class="fas fa-mobile-alt"></i> Current Mobile Interface Analysis</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4><i class="fas fa-check-circle" style="color: #10b981;"></i> Current Strengths</h4>
+                        <ul>
+                            <li>Arabic-first design with proper RTL support</li>
+                            <li>Teacher profiles with course listings</li>
+                            <li>Basic course categorization system</li>
+                            <li>Clean, readable typography</li>
+                            <li>Functional navigation structure</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-exclamation-triangle" style="color: #f59e0b;"></i> Areas for Improvement</h4>
+                        <ul>
+                            <li>Limited interactive engagement features</li>
+                            <li>No progress tracking or gamification</li>
+                            <li>Missing modern UX patterns (pull-to-refresh, etc.)</li>
+                            <li>No personalized content recommendations</li>
+                            <li>Weak call-to-action placement</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3><span class="section-number">📱</span><i class="fas fa-user-graduate"></i> User Journey Analysis</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4>Student Discovery</h4>
+                            <p>Students find teachers through browsing, but no personalized recommendations</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4>Course Selection</h4>
+                            <p>Basic course listings exist, but limited preview content or social proof</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4>Engagement Gap</h4>
+                            <p>No community features, progress tracking, or retention mechanisms</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-box">
+                    <strong>Mobile Opportunity:</strong> Current interface serves basic needs but misses modern engagement patterns. Users expect personalized experiences, community features, and progress tracking - all missing from current implementation.
+                </div>
+            </div>
+
+            <!-- Slide 5: Website Redesign & UX -->
+            <div class="slide">
+                <h2><i class="fas fa-paint-brush"></i> Website Redesign & UX</h2>
+                <h3><span class="section-number">1</span><i class="fas fa-magic"></i> Complete Design Overhaul</h3>
+                <ul>
+                    <li>Modern, clean interface design that builds immediate trust and credibility</li>
+                    <li>Feature teachers prominently as key differentiator and social proof element</li>
+                    <li>Implement intuitive categorization with dedicated Tawjihi section for easy navigation</li>
+                    <li>Mobile-first responsive design ensuring optimal experience across all devices</li>
+                </ul>
+                <h3><span class="section-number">2</span><i class="fas fa-bullseye"></i> Enhanced CTAs & Conversion</h3>
+                <ul>
+                    <li>Strategic signup prompts on high-traffic pages with clear value propositions</li>
+                    <li>Video teasers with "Register to continue watching" conversion gates</li>
+                    <li>Smart discount banners on pages with highest engagement rates</li>
+                    <li>Mobile sticky bar: "حفظ التقدّم / متابعة التعلم → تسجيل مجاني"</li>
+                    <li>Redesigned signup flow highlighting exclusive membership benefits</li>
+                </ul>
+            </div>
+
+            <!-- Slide 6: Navigation & SEO -->
+            <div class="slide">
+                <h2><i class="fas fa-compass"></i> Navigation & SEO Enhancement</h2>
+                <h3><span class="section-number">3</span><i class="fas fa-route"></i> Navigation Improvements</h3>
+                <ul>
+                    <li>Add Tawjihi to primary navigation for direct access to high-demand content</li>
+                    <li>Implement comprehensive breadcrumb navigation across all pages</li>
+                    <li>Elevate Watad Library to above-the-fold positioning for maximum visibility</li>
+                    <li>Smart search functionality with auto-suggestions and filters</li>
+                </ul>
+                <h3><span class="section-number">4</span><i class="fas fa-search"></i> SEO & Social Optimization</h3>
+                <ul>
+                    <li>Comprehensive review and enhancement of Open Graph tags for social sharing</li>
+                    <li>Utilize teachers group photography (animated) for compelling social previews</li>
+                    <li>Content strategy: "Lost your book? Study through our platform" for organic traffic</li>
+                    <li>Technical SEO improvements including site speed and mobile optimization</li>
+                </ul>
+                <div class="impact-box">
+                    <strong>Expected Results:</strong> 40% improvement in navigation clarity, 25% increase in organic search traffic, and 60% better social media engagement rates.
+                </div>
+            </div>
+
+            <!-- Slide 7: Content Marketing Strategy -->
+            <div class="slide">
+                <h2><i class="fas fa-content"></i> Content Marketing Strategy</h2>
+                <h3><span class="section-number">5</span><i class="fas fa-video"></i> Content Initiatives</h3>
+                <ul>
+                    <li><span class="highlight">Q&A YouTube Channel:</span> Weekly student-teacher Q&A sessions driving engagement and community building</li>
+                    <li><span class="highlight">Student Blog Program:</span> Feature student-written content, making Watad publication a status symbol</li>
+                    <li><span class="highlight">Educational Content Hub:</span> Share valuable educational resources for natural backlink acquisition</li>
+                    <li><span class="highlight">Teacher Spotlight Series:</span> Regular features showcasing our educators' expertise and personality</li>
+                </ul>
+                <h3><span class="section-number">6</span><i class="fas fa-users"></i> Teacher Promotional Content</h3>
+                <ul>
+                    <li>Short introduction videos where teachers present their teaching philosophy and approach</li>
+                    <li>Behind-the-scenes content showing preparation and dedication</li>
+                    <li>Student testimonials paired with teacher introductions for social proof</li>
+                </ul>
+                <div class="impact-box">
+                    <strong>Community Impact:</strong> Students actively seek to be featured on Watad, creating organic user-generated content and powerful social proof that drives viral growth.
+                </div>
+            </div>
+
+            <!-- Slide 8: Watad Rooms - Community Platform -->
+            <div class="slide">
+                <h2><i class="fas fa-users"></i> Watad Rooms - Community Platform</h2>
+                <h3><span class="section-number">7</span><i class="fas fa-comments"></i> Student Collaboration Spaces</h3>
+                <ul>
+                    <li>Subject-specific discussion forums for course materials and peer collaboration</li>
+                    <li>Homework help spaces where students support each other with assignments</li>
+                    <li>Study group formation tools with scheduling and resource sharing</li>
+                    <li>Peer review system for projects and assignments</li>
+                </ul>
+                <h3><span class="section-number">8</span><i class="fas fa-chalkboard-teacher"></i> Teacher Professional Network</h3>
+                <ul>
+                    <li>Regional teacher collaboration spaces for knowledge exchange</li>
+                    <li>Teaching resource library with sharing and rating system</li>
+                    <li>Best practice discussions and continuous professional development</li>
+                    <li>Mentorship programs connecting experienced and new educators</li>
+                </ul>
+                <div class="impact-box">
+                    <strong>Strategic Value:</strong> Transforms Watad from a content library into a sticky learning community with daily engagement, significantly increasing user lifetime value and retention.
+                </div>
+            </div>
+
+            <!-- Slide 9: New Services - Educational Expansion -->
+            <div class="slide">
+                <h2><i class="fas fa-plus-circle"></i> New Services - Educational Expansion</h2>
+                <h3><span class="section-number">9</span><i class="fas fa-brain"></i> Specialized Educational Services</h3>
+                <ul>
+                    <li><span class="highlight">Evaluate My Child (تقييم طفلي):</span> Professional assessment service for learning difficulties and academic planning</li>
+                    <li><span class="highlight">Quran Learning Centers:</span> Online Quran education with Noorani Qaida for local and expatriate families</li>
+                    <li><span class="highlight">Arabic for International Students:</span> Comprehensive Arabic language courses for non-native speakers</li>
+                    <li><span class="highlight">STEM Robotics Partnership:</span> Collaboration with certified robotics centers for hands-on learning</li>
+                </ul>
+                <h3><span class="section-number">10</span><i class="fas fa-user-graduate"></i> Private Tutoring Marketplace</h3>
+                <ul>
+                    <li>Connect students with qualified teachers for personalized one-on-one sessions</li>
+                    <li>Flexible delivery options: in-home visits or online Zoom sessions</li>
+                    <li>Revenue model: 15-20% commission on successful bookings</li>
+                    <li>Quality assurance through rating system and background verification</li>
+                </ul>
+            </div>
+
+            <!-- Slide 10: Content & Marketplace Services -->
+            <div class="slide">
+                <h2><i class="fas fa-store"></i> Content & Marketplace Services</h2>
+                <h3><span class="section-number">11</span><i class="fas fa-book-open"></i> Watad Library / Gift Platform</h3>
+                <ul>
+                    <li>Comprehensive audiobook library featuring children's stories and educational podcasts</li>
+                    <li>Exclusive partnerships with Aroub Sabah and Abdulrahman Hattou for premium content</li>
+                    <li>Market validation: "Hikayat bel Arabi" app demonstrates 500K+ user demand for Arabic content</li>
+                    <li>Subscription model with family-friendly pricing tiers</li>
+                </ul>
+                <h3><span class="section-number">12</span><i class="fas fa-map-marker-alt"></i> Activities & Centers Directory</h3>
+                <ul>
+                    <li>Comprehensive listing of children's activity centers and educational facilities</li>
+                    <li>Revenue through premium listings and advertising partnerships</li>
+                    <li>SEO benefits through local business backlinks and community engagement</li>
+                </ul>
+                <h3><span class="section-number">13</span><i class="fas fa-shopping-cart"></i> Watad Marketplace</h3>
+                <ul>
+                    <li>Peer-to-peer marketplace for used books, school uniforms, and educational materials</li>
+                    <li>Revenue model: 2 JD listing fee per item, tapping into existing WhatsApp-based trading</li>
+                    <li>Quality control through user ratings and verification system</li>
+                </ul>
+            </div>
+
+            <!-- Slide 11: Ads Integration & Monetization -->
+            <div class="slide">
+                <h2><i class="fas fa-bullhorn"></i> Ads Integration & Monetization Strategy</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4><i class="fas fa-mobile-alt"></i> Mobile Ads Implementation</h4>
+                        <h3 style="margin-top: 0; color: #667eea;">Phase 1: Native Integration</h3>
+                        <ul>
+                            <li><span class="highlight">Google AdMob Integration:</span> Primary mobile ad network with high Arabic CPM</li>
+                            <li><span class="highlight">Facebook Audience Network:</span> Secondary network for better fill rates</li>
+                            <li><span class="highlight">Native Ad Placement:</span> Between lesson cards and course listings</li>
+                            <li><span class="highlight">Interstitial Timing:</span> After completing lessons, not during active learning</li>
+                        </ul>
+                        <h3 style="color: #667eea;">Phase 2: Advanced Targeting</h3>
+                        <ul>
+                            <li>Subject-based ad targeting (Math → Calculator apps)</li>
+                            <li>Grade-level appropriate advertising</li>
+                            <li>Geographic targeting for local services</li>
+                            <li>Time-based ads (study materials during exam periods)</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-desktop"></i> Website Ads Implementation</h4>
+                        <h3 style="margin-top: 0; color: #667eea;">Phase 1: Strategic Placement</h3>
+                        <ul>
+                            <li><span class="highlight">Google AdSense:</span> Primary web advertising platform</li>
+                            <li><span class="highlight">Header Leaderboard:</span> 728x90 banner for maximum visibility</li>
+                            <li><span class="highlight">Sidebar Rectangles:</span> 300x250 medium rectangles in content areas</li>
+                            <li><span class="highlight">In-Content Ads:</span> Native ads within lesson descriptions</li>
+                        </ul>
+                        <h3 style="color: #667eea;">Phase 2: Premium Placements</h3>
+                        <ul>
+                            <li>Sponsored teacher recommendations</li>
+                            <li>Featured course promotions</li>
+                            <li>Educational partner showcases</li>
+                            <li>Marketplace item promotions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3><span class="section-number">💰</span><i class="fas fa-chart-line"></i> Revenue Projections & Ad Performance</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">$15K</span>
+                        <div class="stat-label">Monthly Ad Revenue Potential</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2.3%</span>
+                        <div class="stat-label">Expected CTR (Education Sector)</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">$0.85</span>
+                        <div class="stat-label">Average CPM (Arabic Content)</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">18.8M</span>
+                        <div class="stat-label">Monthly Impressions Available</div>
+                    </div>
+                </div>
+                
+                <div class="impact-box">
+                    <strong>Monetization Impact:</strong> With 18.8M monthly page views, strategic ad placement could generate $10-15K monthly revenue while maintaining user experience quality. Native integration ensures ads feel helpful rather than intrusive.
+                </div>
+            </div>
+
+            <!-- Slide 12: Push Notifications Impact & Strategy -->
+            <div class="slide">
+                <h2><i class="fas fa-bell"></i> Push Notifications Impact & Strategy</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4><i class="fas fa-chart-bar"></i> Proven Impact Metrics</h4>
+                        <div class="stats-grid" style="margin: 15px 0;">
+                            <div class="stat-card">
+                                <span class="stat-number">+88%</span>
+                                <div class="stat-label">Increase in Daily Active Users</div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">3-10x</span>
+                                <div class="stat-label">Improved Retention Rates</div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">+65%</span>
+                                <div class="stat-label">Course Completion Rates</div>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-number">+40%</span>
+                                <div class="stat-label">Session Duration Increase</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-mobile-alt"></i> Smart Notification Types</h4>
+                        <ul>
+                            <li><span class="highlight">Study Reminders:</span> "Time for your daily Physics lesson! 📚"</li>
+                            <li><span class="highlight">Achievement Badges:</span> "Congratulations! 7-day study streak! 🔥"</li>
+                            <li><span class="highlight">New Content Alerts:</span> "New Math chapter available from Mr. Ahmad"</li>
+                            <li><span class="highlight">Assignment Deadlines:</span> "Chemistry homework due tomorrow"</li>
+                            <li><span class="highlight">Social Engagement:</span> "Sarah commented on your question"</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3><span class="section-number">⏰</span><i class="fas fa-clock"></i> Intelligent Timing Strategy</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4>Morning Motivation (8:00 AM)</h4>
+                            <p>"Good morning! Start your day with a quick review session 🌅"</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4>After School Reminder (3:30 PM)</h4>
+                            <p>"Ready to tackle today's homework? Let's get started! 📖"</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4>Evening Study Time (7:00 PM)</h4>
+                            <p>"Perfect time for focused learning. Continue where you left off 🎯"</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4>Weekend Engagement (Saturday 10:00 AM)</h4>
+                            <p>"Weekend learning bonus! Explore new topics at your own pace 🚀"</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-box">
+                    <strong>Behavioral Impact:</strong> Strategic push notifications transform passive users into active learners. Personalized timing and content based on user behavior patterns can increase platform engagement by 88% and create consistent daily learning habits.
+                </div>
+            </div>
+
+            <!-- Slide 13: Growth & AI Innovation -->
+            <div class="slide">
+                <h2><i class="fas fa-robot"></i> Growth & AI Innovation</h2>
+                <h3><span class="section-number">14</span><i class="fas fa-share-alt"></i> Viral Referral Program</h3>
+                <ul>
+                    <li>Invite-a-friend program offering 15% discount on next course purchase</li>
+                    <li>Gamified referral system with achievement badges and leaderboards</li>
+                    <li>Social sharing integration with trackable referral links</li>
+                    <li>Direct ROI tracking and analytics for program optimization</li>
+                </ul>
+                <h3><span class="section-number">15</span><i class="fas fa-brain"></i> AI-Powered Personalized Learning</h3>
+                <ul>
+                    <li>Comprehensive diagnostic assessment analyzing individual student strengths and weaknesses</li>
+                    <li>AI-generated personalized study plans: "Strong in Algebra, needs support in Geometry"</li>
+                    <li>Adaptive learning paths that adjust based on progress and performance</li>
+                    <li>Intelligent content recommendations similar to Netflix's algorithm approach</li>
+                    <li>Market leader reference: Khan Academy's success validates demand for personalized education</li>
+                </ul>
+                <div class="impact-box">
+                    <strong>Competitive Advantage:</strong> AI personalization represents the future of educational technology, creating 10x more value than static content delivery and establishing market leadership.
+                </div>
+            </div>
+
+            <!-- Slide 14: Implementation Roadmap -->
+            <div class="slide">
+                <h2><i class="fas fa-calendar-check"></i> Implementation Roadmap</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4><i class="fas fa-bolt"></i> Phase 1: Quick Wins (Months 1-2)</h4>
+                            <p>• Complete website redesign and UX overhaul</p>
+                            <p>• Navigation improvements and enhanced CTAs</p>
+                            <p>• Teacher feature implementation</p>
+                            <p>• Push notification system deployment</p>
+                            <p>• Mobile experience optimization</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4><i class="fas fa-users"></i> Phase 2: Community Building (Months 3-4)</h4>
+                            <p>• Watad Rooms platform launch</p>
+                            <p>• Content marketing strategy execution</p>
+                            <p>• Referral program implementation</p>
+                            <p>• SEO optimization and social media integration</p>
+                            <p>• Teacher promotional content creation</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4><i class="fas fa-expand-arrows-alt"></i> Phase 3: Service Expansion (Months 5-6)</h4>
+                            <p>• New educational services rollout</p>
+                            <p>• Marketplace platform launch</p>
+                            <p>• Audiobook library and content partnerships</p>
+                            <p>• Private tutoring service implementation</p>
+                            <p>• Activities directory and local partnerships</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="card">
+                            <h4><i class="fas fa-brain"></i> Phase 4: AI Innovation (Months 7-9)</h4>
+                            <p>• AI-powered personalized learning system</p>
+                            <p>• Advanced analytics and user behavior tracking</p>
+                            <p>• Machine learning content recommendations</p>
+                            <p>• Predictive analytics for student success</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 15: Expected Impact & ROI -->
+            <div class="slide">
+                <h2><i class="fas fa-chart-line"></i> Expected Impact & ROI</h2>
+                <div class="stats-grid" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <span class="stat-number">+40%</span>
+                        <div class="stat-label">New User Signups</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3x</span>
+                        <div class="stat-label">User Retention Rate</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">+88%</span>
+                        <div class="stat-label">Daily Active Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">+60%</span>
+                        <div class="stat-label">Time on Platform</div>
+                    </div>
+                </div>
+                <div class="grid-2" style="margin-top: 30px;">
+                    <div class="card">
+                        <h4><i class="fas fa-dollar-sign"></i> Revenue Diversification</h4>
+                        <p>• 7 new revenue streams beyond core education</p>
+                        <p>• Marketplace transaction fees and commissions</p>
+                        <p>• Private tutoring service revenue sharing</p>
+                        <p>• Premium content subscriptions and partnerships</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-trophy"></i> Market Position</h4>
+                        <p>• Evolution from content library to comprehensive ecosystem</p>
+                        <p>• Community-driven differentiation from competitors</p>
+                        <p>• AI-powered competitive advantage and innovation leadership</p>
+                        <p>• Regional market expansion opportunities</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Demo Links & Resources -->
+            <div class="slide">
+                <h2><i class="fas fa-link"></i> Live Demos & Resources</h2>
+                <div class="grid-2" style="margin-top: 30px;">
+                    <div class="card" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); border-left: 5px solid #4caf50;">
+                        <h4><i class="fas fa-store"></i> Watad Marketplace Demo</h4>
+                        <p>Experience the proposed marketplace functionality with real-world implementation:</p>
+                        <a href="file:///C:/Users/fayed/OneDrive/Desktop/HW/Watad%20Marketplace.html" 
+                           target="_blank" 
+                           class="demo-link">
+                           📱 View Marketplace Implementation
+                        </a>
+                        <ul style="margin-top: 15px;">
+                            <li>Used books and materials exchange</li>
+                            <li>School uniforms and supplies</li>
+                            <li>Educational project resources</li>
+                            <li>Revenue model: 2 JD listing fee</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left: 5px solid #2196f3;">
+                        <h4><i class="fas fa-globe"></i> Watad Site Preview</h4>
+                        <p>Preview the enhanced website design and user experience improvements:</p>
+                        <a href="file:///C:/Users/fayed/OneDrive/Desktop/HW/watad-preview.html" 
+                           target="_blank" 
+                           class="demo-link">
+                           🌐 View Site Redesign Preview
+                        </a>
+                        <ul style="margin-top: 15px;">
+                            <li>Modern UI/UX improvements</li>
+                            <li>Enhanced teacher features</li>
+                            <li>Improved navigation structure</li>
+                            <li>Mobile-responsive design</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3><span class="section-number">🎯</span><i class="fas fa-bullseye"></i> Key Implementation Features</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <h4><i class="fas fa-shopping-cart"></i> Marketplace Features</h4>
+                        <p>• User-friendly listing creation</p>
+                        <p>• Category-based browsing</p>
+                        <p>• Search and filter functionality</p>
+                        <p>• Secure messaging system</p>
+                        <p>• Rating and review system</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-paint-brush"></i> Design Improvements</h4>
+                        <p>• Clean, modern interface</p>
+                        <p>• Prominent teacher showcasing</p>
+                        <p>• Intuitive navigation flow</p>
+                        <p>• Enhanced call-to-actions</p>
+                        <p>• Mobile-first responsive design</p>
+                    </div>
+                    <div class="card">
+                        <h4><i class="fas fa-rocket"></i> Performance Enhancements</h4>
+                        <p>• Faster page load times</p>
+                        <p>• Improved SEO optimization</p>
+                        <p>• Better conversion funnels</p>
+                        <p>• Enhanced user engagement</p>
+                        <p>• Analytics integration</p>
+                    </div>
+                </div>
+                
+                <div class="impact-box">
+                    <strong>Live Demonstration:</strong> These working prototypes showcase the practical implementation of our strategic recommendations, demonstrating real-world functionality and user experience improvements.
+                </div>
+            </div>
+
+            <!-- Slide 17: Thank You -->
+            <div class="slide">
+                <h1><i class="fas fa-handshake"></i> Ready to Transform Watad</h1>
+                <p class="subtitle">Questions & Strategic Discussion</p>
+                <div style="margin-top: 50px; padding: 30px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); border-radius: 16px; border-left: 6px solid #667eea;">
+                    <h3 style="margin-top: 0; color: #667eea; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-lightbulb"></i> Strategic Vision
+                    </h3>
+                    <p style="font-size: 1.2rem; line-height: 1.8;">This comprehensive transformation strategy evolves Watad from a traditional content platform into a complete educational ecosystem featuring community engagement, AI-powered personalization, and diversified revenue streams that ensure sustainable growth and market leadership.</p>
+                </div>
+                <div style="margin-top: 30px;">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number">17</span>
+                            <div class="stat-label">Strategic Initiatives</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">9</span>
+                            <div class="stat-label">Months to Full Implementation</div>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">∞</span>
+                            <div class="stat-label">Growth Potential</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section class="filters">
-    <input type="text" placeholder="ابحث عن منتج...">
-    <select>
-      <option>كل الفئات</option>
-      <option>كتب</option>
-      <option>زي مدرسي</option>
-      <option>شرائح عرض</option>
-      <option>مشاريع</option>
-    </select>
-    <select>
-      <option>كل المدارس</option>
-      <option>مدرسة الرواد</option>
-      <option>مدرسة الأهلية</option>
-      <option>مدرسة الأكاديمية</option>
-      <option>مدرسة النهضة</option>
-    </select>
-    <select>
-      <option>كل الصفوف</option>
-      <option>الصف الأول</option>
-      <option>الصف الثاني</option>
-      <option>الصف الثالث</option>
-      <option>الصف الرابع</option>
-      <option>الصف الخامس</option>
-      <option>الصف السادس</option>
-      <option>الصف السابع</option>
-      <option>الصف الثامن</option>
-      <option>الصف التاسع</option>
-      <option>الصف العاشر</option>
-      <option>الصف الحادي عشر</option>
-      <option>الصف الثاني عشر</option>
-    </select>
-    <button>بحث</button>
-  </section>
-
-  <div class="ad-banner">
-    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1600&q=80" alt="أكاديمية النغمة">
-    <div class="content">
-      <h2>🎵 أكاديمية النغمة لتعليم الموسيقى</h2>
-      <p>دروس بيانو وجيتار للأطفال واليافعين – سجّل الآن واستفد من خصم 30%</p>
-      <button>سجّل الآن</button>
+    <div class="slide-counter">
+        <i class="fas fa-presentation"></i>
+        <span id="current">1</span> / <span id="total">17</span>
     </div>
-  </div>
 
-  <section class="grid">
-    <div class="card"><h3>كتب رياضيات توجيهي</h3><p>مجموعة كتب حديثة بحالة ممتازة مع دفاتر التمارين.</p><div class="price">10 د.أ</div><button class="buy-btn">شراء الآن</button></div>
-    <div class="card"><h3>زي مدرسي أولاد</h3><p>زي رسمي جاهز، مقاس متوسط بحالة جديدة.</p><div class="price">12 د.أ</div><button class="buy-btn">شراء الآن</button></div>
-    <div class="card"><h3>مشروع علمي جاهز</h3><p>لوحة مشروع للصف التاسع، تصميم أنيق جاهز للعرض.</p><div class="price">8 د.أ</div><button class="buy-btn">شراء الآن</button></div>
-    <div class="card"><h3>شرائح عرض لمادة العلوم</h3><p>شرائح PowerPoint تفاعلية لوحدة الجهاز الهضمي.</p><div class="price">5 د.أ</div><button class="buy-btn">شراء الآن</button></div>
-    <div class="card"><h3>ملفات إنجاز للطلاب</h3><p>تصميم ملف إنجاز حديث بصيغة PDF وقابل للطباعة.</p><div class="price">3 د.أ</div><button class="buy-btn">شراء الآن</button></div>
-    <div class="card"><h3>ملخصات مادة الفيزياء</h3><p>ملخص منظم يحتوي على أسئلة وزارية وحلول مفصلة.</p><div class="price">6 د.أ</div><button class="buy-btn">شراء الآن</button></div>
-  </section>
+    <div class="navigation">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            Next <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
 
-  <footer>
-    <p>© 2025 وتد - جميع الحقوق محفوظة | ابدأ البيع أو الشراء الآن وساهم في دعم التعليم</p>
-  </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressFill = document.getElementById('progressFill');
 
-  <script src="https://ai.genie9.com/widget/loader.js" data-key="gw_ed738b072f1b2dfc164c4a210e0747f6" data-api-url="https://ai.genie9.com"></script>
+        document.getElementById('total').textContent = totalSlides;
+
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressFill.style.width = progress + '%';
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            slides[currentSlide].scrollTop = 0;
+            
+            document.getElementById('current').textContent = currentSlide + 1;
+            updateProgress();
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            if (direction === 1 && currentSlide < totalSlides - 1) {
+                showSlide(currentSlide + direction);
+            } else if (direction === -1 && currentSlide > 0) {
+                showSlide(currentSlide + direction);
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight' && currentSlide < totalSlides - 1) {
+                changeSlide(1);
+            } else if (e.key === 'Home') {
+                showSlide(0);
+            } else if (e.key === 'End') {
+                showSlide(totalSlides - 1);
+            }
+        });
+
+        // Touch/swipe navigation
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let isScrolling = false;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+            isScrolling = false;
+        }, { passive: true });
+
+        document.addEventListener('touchmove', (e) => {
+            isScrolling = true;
+        }, { passive: true });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            const minSwipeDistance = 100;
+            
+            // Only trigger swipe if horizontal movement is greater than vertical and user wasn't scrolling
+            if (!isScrolling && 
+                Math.abs(deltaX) > Math.abs(deltaY) && 
+                Math.abs(deltaX) > minSwipeDistance &&
+                Math.abs(deltaY) < 50) {
+                
+                if (deltaX < 0 && currentSlide < totalSlides - 1) {
+                    changeSlide(1); // Swipe left - next slide
+                } else if (deltaX > 0 && currentSlide > 0) {
+                    changeSlide(-1); // Swipe right - previous slide
+                }
+            }
+        }
+
+        // Initialize
+        showSlide(0);
+        updateProgress();
+    </script>
 </body>
 </html>
