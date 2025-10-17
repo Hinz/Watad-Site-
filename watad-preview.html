@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watad Home — Themed Preview</title>
+
+  <!-- Basic OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="وتد">
+  <meta property="og:title" content="Watad Home — Themed Preview">
+  <meta property="og:locale" content="ar_AR">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- JSON-LD: Organization + Course bundle -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "وتد",
+    "url": "https://watad.me/",
+    "logo": "https://watad.me/logo.png",
+    "sameAs": ["https://play.google.com/store/apps/details?id=com.watad.watad"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "itemListElement":[
+      {"@type":"Course","name":"برنامج التوجيهي"},
+      {"@type":"Course","name":"برنامج الصفوف الأساسية"},
+      {"@type":"Course","name":"برنامج الجامعات"}
+    ]
+  }
+  </script>
+
+  <style>
+    /* === MODERN DESIGN SYSTEM === */
+    :root {
+      /* Colors - Enhanced palette */
+      --primary-50: #eff6ff;
+      --primary-100: #dbeafe;
+      --primary-200: #bfdbfe;
+      --primary-300: #93c5fd;
+      --primary-400: #60a5fa;
+      --primary-500: #3b82f6;
+      --primary-600: #2563eb;
+      --primary-700: #1d4ed8;
+      --primary-800: #1e40af;
+      --primary-900: #1e3a8a;
+      
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-300: #d1d5db;
+      --gray-400: #9ca3af;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+      
+      --success: #10b981;
+      --warning: #f59e0b;
+      --error: #ef4444;
+      
+      /* Semantic colors */
+      --bg: var(--gray-50);
+      --surface: #ffffff;
+      --ink: var(--gray-900);
+      --ink-dim: var(--gray-600);
+      --brand: var(--primary-600);
+      --brand-2: var(--primary-500);
+      --stroke: var(--gray-200);
+      --accent: var(--warning);
+      
+      /* Typography */
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --fs-xs: 0.75rem;    /* 12px */
+      --fs-sm: 0.875rem;   /* 14px */
+      --fs-base: 1rem;     /* 16px */
+      --fs-lg: 1.125rem;   /* 18px */
+      --fs-xl: 1.25rem;    /* 20px */
+      --fs-2xl: 1.5rem;    /* 24px */
+      --fs-3xl: 1.875rem;  /* 30px */
+      --fs-4xl: 2.25rem;   /* 36px */
+      --fs-5xl: 3rem;      /* 48px */
+      
+      /* Line heights */
+      --lh-tight: 1.25;
+      --lh-snug: 1.375;
+      --lh-normal: 1.5;
+      --lh-relaxed: 1.625;
+      --lh-loose: 2;
+      
+      /* Spacing scale */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      
+      /* Border radius */
+      --radius-sm: 0.375rem;
+      --radius: 0.5rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-2xl: 2rem;
+      --radius-full: 9999px;
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      
+      /* Transitions */
+      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* === RESET & BASE === */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: var(--fs-base);
+      line-height: var(--lh-normal);
+      color: var(--ink);
+      background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img, picture, video, canvas, svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    input, button, textarea, select {
+      font: inherit;
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: break-word;
+    }
+
+    /* === TYPOGRAPHY === */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 800;
+      line-height: var(--lh-tight);
+      color: var(--ink);
+    }
+
+    h1 {
+      font-size: clamp(var(--fs-3xl), 4vw, var(--fs-5xl));
+      font-weight: 900;
+      color: var(--brand);
+    }
+
+    h2 {
+      font-size: clamp(var(--fs-2xl), 3vw, var(--fs-4xl));
+    }
+
+    h3 {
+      font-size: var(--fs-xl);
+      font-weight: 700;
+    }
+
+    p {
+      line-height: var(--lh-relaxed);
+      color: var(--ink-dim);
+    }
+
+    .text-center { text-align: center; }
+    .text-balance { text-wrap: balance; }
+
+    /* === LAYOUT === */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-4);
+    }
+
+    @media (min-width: 640px) {
+      .container {
+        padding: 0 var(--space-6);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .container {
+        padding: 0 var(--space-8);
+      }
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    /* === COMPONENTS === */
+    
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      line-height: 1;
+      text-decoration: none;
+      border: 2px solid transparent;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      min-height: 44px;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand-2), var(--brand));
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--brand);
+      border-color: var(--brand);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-secondary:hover {
+      background: var(--primary-50);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-lg {
+      padding: var(--space-4) var(--space-8);
+      font-size: var(--fs-base);
+      min-height: 52px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      box-shadow: var(--shadow);
+      transition: all var(--transition-base);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary-200);
+    }
+
+    .card h3 {
+      margin-bottom: var(--space-3);
+      color: var(--ink);
+    }
+
+    .card p {
+      margin-bottom: var(--space-4);
+      flex-grow: 1;
+    }
+
+    /* Grid layouts */
+    .grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    @media (max-width: 640px) {
+      .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* === NAVIGATION === */
+    .topnav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--stroke);
+      z-index: 50;
+      transition: all var(--transition-base);
+    }
+
+    .topnav.scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4) 0;
+      gap: var(--space-4);
+    }
+
+    .logo {
+      font-size: var(--fs-2xl);
+      font-weight: 900;
+      color: var(--brand);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .menu {
+      display: none;
+      gap: var(--space-2);
+    }
+
+    @media (min-width: 768px) {
+      .menu {
+        display: flex;
+      }
+    }
+
+    .menu a {
+      padding: var(--space-2) var(--space-4);
+      font-weight: 500;
+      color: var(--ink-dim);
+      text-decoration: none;
+      border-radius: var(--radius);
+      transition: all var(--transition-fast);
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      color: var(--brand);
+      background: var(--primary-50);
+    }
+
+    .auth {
+      display: flex;
+      gap: var(--space-3);
+      align-items: center;
+    }
+
+    /* === HERO SECTION === */
+    .hero {
+      background: linear-gradient(
+        135deg,
+        var(--primary-50) 0%,
+        var(--surface) 50%,
+        var(--primary-50) 100%
+      );
+      padding: var(--space-24) 0 var(--space-20);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 80%;
+      height: 200%;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(59, 130, 246, 0.1) 0%,
+        transparent 70%
+      );
+      transform: rotate(-15deg);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-6);
+      background: linear-gradient(135deg, var(--brand), var(--primary-700));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: var(--fs-lg);
+      margin-bottom: var(--space-8);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .trust-row {
+      display: flex;
+      gap: var(--space-4);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--space-8);
+    }
+
+    .trust-chip {
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-full);
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* === SECTIONS === */
+    .section-padding {
+      padding: var(--space-20) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: var(--space-16);
+    }
+
+    .section-header h2 {
+      margin-bottom: var(--space-4);
+    }
+
+    .section-header p {
+      font-size: var(--fs-lg);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Why section */
+    .why {
+      background: var(--surface);
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .why-card {
+      text-align: center;
+      padding: var(--space-8);
+    }
+
+    .why-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--space-4);
+      background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand);
+    }
+
+    /* Programs section */
+    .programs {
+      background: var(--bg);
+    }
+
+    .program-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cat-media {
+      aspect-ratio: 16 / 10;
+      background-size: cover;
+      background-position: center;
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cat-media::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.1) 100%
+      );
+    }
+
+    .inline-cta {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      margin-top: var(--space-4);
+    }
+
+    /* Teachers section */
+    .teachers {
+      background: var(--surface);
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .teacher {
+      text-align: center;
+    }
+
+    .teacher img {
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-3);
+      border: 3px solid var(--surface);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .teacher figcaption {
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    /* Availability section */
+    .availability {
+      background: linear-gradient(135deg, var(--primary-50), var(--surface));
+    }
+
+    .banner-box {
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-12);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+
+    .banner-box::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle at center,
+        rgba(59, 130, 246, 0.05) 0%,
+        transparent 70%
+      );
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: var(--fs-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-4);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+
+    .metric {
+      text-align: center;
+      padding: var(--space-6);
+      background: var(--surface);
+      border: 1px solid var(--primary-200);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .metric svg {
+      color: var(--brand);
+      margin-bottom: var(--space-3);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: var(--fs-2xl);
+      font-weight: 900;
+      color: var(--brand);
+      margin-bottom: var(--space-1);
+    }
+
+    .metric span {
+      color: var(--ink-dim);
+      font-size: var(--fs-sm);
+    }
+
+    /* Services section */
+    .about-services {
+      background: var(--surface);
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .offer {
+      text-align: center;
+      padding: var(--space-6);
+      position: relative;
+    }
+
+    .of-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto var(--space-4);
+      background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand);
+    }
+
+    .of-chips {
+      display: flex;
+      gap: var(--space-2);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+
+    .chip-link {
+      padding: var(--space-2) var(--space-3);
+      background: var(--primary-50);
+      border: 1px solid var(--primary-200);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--brand);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+
+    .chip-link:hover {
+      background: var(--primary-100);
+      border-color: var(--brand);
+    }
+
+    /* Results section */
+    .results {
+      background: var(--bg);
+    }
+
+    .result-card {
+      text-align: center;
+      padding: var(--space-8);
+    }
+
+    .rank-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--brand), var(--primary-700));
+      color: white;
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-4);
+    }
+
+    .result-card h3 {
+      margin-bottom: var(--space-2);
+    }
+
+    .result-card .year {
+      display: block;
+      color: var(--ink-dim);
+      font-size: var(--fs-sm);
+      margin-top: var(--space-2);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: var(--surface);
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    blockquote {
+      background: var(--bg);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      font-style: italic;
+      line-height: var(--lh-relaxed);
+      position: relative;
+      border-right: 4px solid var(--brand);
+    }
+
+    blockquote::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      right: var(--space-4);
+      font-size: var(--fs-4xl);
+      color: var(--brand);
+      font-weight: 900;
+    }
+
+    /* FAQ */
+    .faq {
+      background: var(--bg);
+    }
+
+    .faq details {
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--space-4);
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+
+    .faq details:hover {
+      border-color: var(--primary-300);
+    }
+
+    .faq summary {
+      padding: var(--space-4) var(--space-6);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      transition: all var(--transition-fast);
+    }
+
+    .faq summary:hover {
+      background: var(--primary-50);
+    }
+
+    .faq summary::marker {
+      content: '';
+    }
+
+    .faq summary::before {
+      content: '+';
+      font-size: var(--fs-xl);
+      font-weight: 900;
+      color: var(--brand);
+      transition: transform var(--transition-fast);
+    }
+
+    .faq details[open] summary::before {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .faq details p {
+      padding: 0 var(--space-6) var(--space-4);
+      color: var(--ink-dim);
+    }
+
+    /* Partners */
+    .partners {
+      background: var(--surface);
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary-100);
+      border: 1px solid var(--primary-200);
+      border-radius: var(--radius-full);
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--brand);
+      margin-bottom: var(--space-8);
+    }
+
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .partner-logos img {
+      height: 48px;
+      max-width: 200px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all var(--transition-base);
+      padding: var(--space-3);
+      background: var(--surface);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+    }
+
+    .partner-logos img:hover {
+      filter: none;
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* Apps section */
+    .apps {
+      background: var(--bg);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .two-col {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .badges {
+      display: flex;
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+
+    .store {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      background: var(--gray-900);
+      color: white;
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-lg);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all var(--transition-base);
+    }
+
+    .store:hover {
+      background: var(--gray-800);
+      transform: translateY(-2px);
+    }
+
+    .device-ph {
+      aspect-ratio: 9 / 16;
+      max-width: 300px;
+      background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+      border: 2px dashed var(--primary-300);
+      border-radius: var(--radius-2xl);
+      margin: 0 auto;
+    }
+
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(135deg, var(--primary-100), var(--surface));
+      text-align: center;
+      padding: var(--space-20) 0;
+    }
+
+    .final-cta h2 {
+      margin-bottom: var(--space-6);
+    }
+
+    .subnote {
+      margin-top: var(--space-4);
+      font-size: var(--fs-sm);
+      color: var(--ink-dim);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--gray-900);
+      color: var(--gray-300);
+      padding: var(--space-16) 0 var(--space-8);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+
+    .site-footer h4,
+    .site-footer h5 {
+      color: white;
+      margin-bottom: var(--space-4);
+    }
+
+    .site-footer ul {
+      list-style: none;
+    }
+
+    .site-footer li {
+      margin-bottom: var(--space-2);
+    }
+
+    .site-footer a {
+      color: var(--gray-400);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+    }
+
+    .site-footer a:hover {
+      color: white;
+    }
+
+    .copy {
+      text-align: center;
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--gray-700);
+      color: var(--gray-500);
+    }
+
+    /* Market & Cards sections */
+    .market,
+    .cards-pos {
+      background: var(--surface);
+      border-top: 1px solid var(--stroke);
+      border-bottom: 1px solid var(--stroke);
+      text-align: center;
+      padding: var(--space-16) 0;
+    }
+
+    .cta-row {
+      margin-top: var(--space-6);
+    }
+
+    /* Sticky CTA */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--gray-900);
+      color: white;
+      z-index: 60;
+      border-top: 1px solid var(--gray-700);
+      display: none;
+      transition: all var(--transition-base);
+    }
+
+    @media (max-width: 768px) {
+      .sticky-cta {
+        display: block;
+      }
+    }
+
+    .sticky-cta .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--space-3) var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+
+    .sticky-cta .msg {
+      font-weight: 600;
+      font-size: var(--fs-sm);
+    }
+
+    /* === RESPONSIVE DESIGN === */
+    @media (max-width: 640px) {
+      .hero {
+        padding: var(--space-16) 0 var(--space-12);
+      }
+
+      .section-padding {
+        padding: var(--space-12) 0;
+      }
+
+      .section-header {
+        margin-bottom: var(--space-8);
+      }
+
+      .trust-row {
+        gap: var(--space-2);
+      }
+
+      .trust-chip {
+        font-size: var(--fs-xs);
+        padding: var(--space-1) var(--space-3);
+      }
+
+      .banner-box {
+        padding: var(--space-8);
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+      }
+
+      .badges {
+        flex-direction: column;
+      }
+
+      .store {
+        justify-content: center;
+      }
+
+      .nav-flex {
+        padding: var(--space-3) 0;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .auth .btn {
+        padding: var(--space-2) var(--space-4);
+        font-size: var(--fs-xs);
+      }
+    }
+
+    /* === ANIMATIONS === */
+    @media (prefers-reduced-motion: no-preference) {
+      .card,
+      .btn,
+      .partner-logos img {
+        transition: transform var(--transition-base), box-shadow var(--transition-base);
+      }
+
+      .hero::before {
+        animation: float 8s ease-in-out infinite;
+      }
+
+      .banner-box::before {
+        animation: float 6s ease-in-out infinite;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* === ACCESSIBILITY === */
+    @media (prefers-contrast: high) {
+      :root {
+        --stroke: var(--gray-400);
+        --ink-dim: var(--gray-700);
+      }
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Focus styles */
+    *:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<main dir="rtl" lang="ar" class="watad-home">
+  <header class="topnav">
+    <div class="container">
+      <div class="nav-flex">
+        <a class="logo" href="#" aria-label="وتد الصفحة الرئيسية">وتـــد</a>
+        <nav class="menu" role="navigation" aria-label="القائمة الرئيسية">
+          <a href="#home">الصفحة الرئيسية</a>
+          <a href="#programs">البرامج و الدورات</a>
+          <a href="#faq">الأسئلة الشائعة</a>
+          <a href="#market">سوق ود</a>
+          <a href="#cards">نقاط بيع بطاقات وتد</a>
+          <a href="#contact">اتصل بنا</a>
+        </nav>
+        <div class="auth">
+          <a class="btn btn-secondary" href="#login">تسجيل الدخول</a>
+          <a class="btn btn-primary" href="#signup">ابدأ الآن</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="text-balance">تعلّم بذكاء — برامج منظمة لكل مرحلة</h1>
+        <p class="text-balance">وتد منصة تعليم إلكتروني حديثة تقدم برامج متكاملة لجميع المراحل، بدروس مباشرة ومسجلة، بنية تفاعلية، واختبارات تقييمية. هدفنا تمكين الطالب أينما كان.</p>
+        <div class="trust-row" role="list" aria-label="اعتمادات وثقة">
+          <span class="trust-chip" role="listitem">+2M طالب</span>
+          <span class="trust-chip" role="listitem">+1.2M ساعة مشاهدة</span>
+          <span class="trust-chip" role="listitem">+100 مدرّس</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why section-padding" id="why">
+    <div class="container">
+      <div class="section-header">
+        <h2>لماذا وتد؟</h2>
+        <p>نقدم تجربة تعليمية متكاملة تجمع بين الجودة والمرونة</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card why-card">
+          <div class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M6 4h10a2 2 0 0 1 2 2v14l-3-2-3 2-3-2-3 2V6a2 2 0 0 1 2-2z"></path>
+            </svg>
+          </div>
+          <h3>خطة دراسية متكاملة</h3>
+          <p>محاضرات مبوبة سهلة الاستخدام مع أنشطة وتمارين وحلول لمساعدة الطالب على إتقان المواد.</p>
+        </article>
+        <article class="card why-card">
+          <div class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <rect x="6" y="9" width="12" height="2" fill="#ffffff"></rect>
+            </svg>
+          </div>
+          <h3>بطاقات مدفوعة مسبقًا</h3>
+          <p>اشترك بسهولة عبر بطاقات وتد المتوفرة بأنواع متعددة للمواد التي ترغب بها.</p>
+        </article>
+        <article class="card why-card">
+          <div class="why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+              <path d="M12 17.3l-6.18 3.7 1.64-7.03L2 9.24l7.19-.61L12 2l2.81 6.63 7.19.61-5.46 4.73 1.64 7.03z"></path>
+            </svg>
+          </div>
+          <h3>ميزات وتد</h3>
+          <p>جودة محتوى عالية، مراجعات شاملة، ومتابعة تقدمك لتصل إلى هدفك بثقة.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs section-padding" id="programs">
+    <div class="container">
+      <div class="section-header">
+        <h2>البرامج الرئيسية</h2>
+        <p>ابدأ من الفئة المناسبة لك</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card program-card" id="tawjihi">
+          <div class="cat-media" style="background-image:url('https://wiki.uhive.com/wp-content/uploads/2025/10/download-4.jpg');" role="img" aria-label="برنامج التوجيهي"></div>
+          <h3>برنامج التوجيهي</h3>
+          <p>مسارات مركزة ومراجعات نهائية وبنك أسئلة.</p>
+          <div class="inline-cta">
+            <a class="btn btn-secondary" href="#">تصفح</a>
+            <a class="btn btn-primary" href="#signup" data-track="program-start">ابدأ الآن</a>
+          </div>
+        </article>
+        <article class="card program-card" id="primary">
+          <div class="cat-media" style="background-image:url('https://wiki.uhive.com/wp-content/uploads/2025/10/download-3.jpg');" role="img" aria-label="برنامج الصفوف الأساسية"></div>
+          <h3>برنامج الصفوف الأساسية</h3>
+          <p>أنشطة تفاعلية وتمارين من الصف 1–9.</p>
+          <div class="inline-cta">
+            <a class="btn btn-secondary" href="#">تصفح</a>
+            <a class="btn btn-primary" href="#signup" data-track="program-start">ابدأ الآن</a>
+          </div>
+        </article>
+        <article class="card program-card" id="uni">
+          <div class="cat-media" style="background-image:url('https://wiki.uhive.com/wp-content/uploads/2025/10/download-2.jpg');" role="img" aria-label="برنامج الجامعات"></div>
+          <h3>برنامج الجامعات</h3>
+          <p>مواد أساسية ومساقات مساندة.</p>
+          <div class="inline-cta">
+            <a class="btn btn-secondary" href="#">تصفح</a>
+            <a class="btn btn-primary" href="#signup" data-track="program-start">ابدأ الآن</a>
+          </div>
+        </article>
+        <article class="card program-card" id="expats-link">
+          <div class="cat-media" style="background-image:url('https://wiki.uhive.com/wp-content/uploads/2025/10/download-1.jpg');" role="img" aria-label="برنامج المغتربين"></div>
+          <h3>برنامج المغتربين</h3>
+          <p>عربية، دين، وقاعدة نورانية من أي مكان.</p>
+          <div class="inline-cta">
+            <a class="btn btn-secondary" href="#expats">تصفح</a>
+            <a class="btn btn-primary" href="#signup" data-track="program-start">ابدأ الآن</a>
+          </div>
+        </article>
+        <article class="card program-card" id="other">
+          <div class="cat-media" style="background-image:url('https://wiki.uhive.com/wp-content/uploads/2025/10/download.jpg');" role="img" aria-label="دورات متنوعة"></div>
+          <h3>دورات متنوعة</h3>
+          <p>لغات، دورات حاسوب، تحضير TOEFL، وتأهيل سوق العمل.</p>
+          <div class="inline-cta">
+            <a class="btn btn-secondary" href="#">تصفح</a>
+            <a class="btn btn-primary" href="#signup" data-track="program-start">ابدأ الآن</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="teachers section-padding" id="teachers">
+    <div class="container">
+      <div class="section-header">
+        <h2>نخبة المدرّسين</h2>
+        <p>فريق من أفضل المعلمين في المنطقة</p>
+      </div>
+      <div class="grid grid-4">
+        <figure class="teacher">
+          <img class="avatar" src="https://wiki.uhive.com/wp-content/uploads/2025/10/1_mmdrzUwuCT7lTWMWIk1DpA.jpg" alt="أ. سارة الخطيب" loading="lazy">
+          <figcaption>أ. سارة الخطيب</figcaption>
+        </figure>
+        <figure class="teacher">
+          <img class="avatar" src="https://wiki.uhive.com/wp-content/uploads/2025/10/images-1.jpg" alt="أ. محمد العبدالله" loading="lazy">
+          <figcaption>أ. محمد العبدالله</figcaption>
+        </figure>
+        <figure class="teacher">
+          <img class="avatar" src="https://wiki.uhive.com/wp-content/uploads/2025/10/images.jpg" alt="أ. ليلى مراد" loading="lazy">
+          <figcaption>أ. ليلى مراد</figcaption>
+        </figure>
+        <figure class="teacher">
+          <img class="avatar" src="https://wiki.uhive.com/wp-content/uploads/2025/10/how-to-be-teacher-malaysia-feature.png" alt="أ. أحمد الطراونة" loading="lazy">
+          <figcaption>أ. أحمد الطراونة</figcaption>
+        </figure>
+      </div>
+      <div class="text-center" style="margin-top: var(--space-8);">
+        <a class="btn btn-secondary" href="#">عرض جميع المدرّسين</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="availability section-padding" id="availability">
+    <div class="container">
+      <div class="banner-box">
+        <p class="kicker">متاح في الوطن العربي وحول العالم</p>
+        <h2 class="text-balance">وتد منصة تعليم عربية للطلاب في الأردن، فلسطين، العراق، إقليم كردستان، ولبنان — وللجاليات العربية أينما كانت</h2>
+        <p class="text-balance">محتوى مطابق للمناهج العربية، مع دروس مباشرة ومسجلة ودعم للمتعلمين في كل مكان.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary btn-lg" href="#signup">ابدأ الآن</a>
+        </div>
+        <p class="subnote">ابدأ مجانًا — لا حاجة لبطاقة، ويمكن الإلغاء في أي وقت.</p>
+
+        <div class="metrics" role="list" aria-label="إحصائيات وتد">
+          <div class="metric" role="listitem">
+            <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+              <path fill="currentColor" d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V20h14v-3.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V20h6v-3.5c0-2.33-4.67-3.5-7-3.5z"/>
+            </svg>
+            <strong>2,000,000+</strong>
+            <span>طالب</span>
+          </div>
+          <div class="metric" role="listitem">
+            <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+              <path fill="currentColor" d="M12 20a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.75-12h-1.5v4.25l3.5 2.1.75-1.23-2.75-1.62V8z"/>
+            </svg>
+            <strong>1,200,000+</strong>
+            <span>ساعة مشاهدة</span>
+          </div>
+          <div class="metric" role="listitem">
+            <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+              <path fill="currentColor" d="M18 2H6a2 2 0 0 0-2 2v16l4-2 4 2 4-2 4 2V4a2 2 0 0 0-2-2z"/>
+            </svg>
+            <strong>5,000+</strong>
+            <span>درس</span>
+          </div>
+          <div class="metric" role="listitem">
+            <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true">
+              <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4z"/>
+            </svg>
+            <strong>100+</strong>
+            <span>مدرّس</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-services section-padding" id="about">
+    <div class="container">
+      <div class="section-header">
+        <h2>ماذا نقدم</h2>
+        <p>خدمات تعليمية شاملة لجميع احتياجاتك</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card offer">
+          <div class="of-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+              <path d="M4 6h16v10H4z" opacity=".15"/>
+              <path d="M4 6h16v2H4zm0 4h10v2H4z"/>
+            </svg>
+          </div>
+          <h3>دروس مباشرة تفاعلية</h3>
+          <p>بث حي مع تفاعل فوري، تسجيلات للإعادة، وجدولة واضحة لكل مادة.</p>
+          <a class="btn btn-primary" href="#">جداول البث</a>
+        </article>
+
+        <article class="card offer">
+          <div class="of-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+              <path d="M3 5h18v14H3z" opacity=".15"/>
+              <path d="M6 8h12v2H6zm0 4h9v2H6z"/>
+            </svg>
+          </div>
+          <h3>دروس مسجلة منظمة</h3>
+          <p>مسارات مرتبة بحسب المرحلة، مع اختبارات قصيرة وتوصيات وفق أدائك.</p>
+          <a class="btn btn-secondary" href="#">ابدأ الآن</a>
+        </article>
+
+        <article class="card offer">
+          <div class="of-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
+              <path d="M4 4h16v4H4zM4 10h16v10H4z"/>
+            </svg>
+          </div>
+          <h3>موارد الاختبار</h3>
+          <p>بنك أسئلة ضخم، دوسيّات مركّزة، ونماذج تجريبية مطابقة للمنهاج.</p>
+          <div class="of-chips">
+            <a class="chip-link" href="#">بنك الأسئلة</a>
+            <a class="chip-link" href="#">الدوسيّات</a>
+            <a class="chip-link" href="#">اختبارات تجريبية</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="results section-padding" id="results">
+    <div class="container">
+      <div class="section-header">
+        <h2>نتائج طلابنا — أوائل المملكة</h2>
+        <p>نماذج من إنجازات طلاب وتد في الامتحانات الرسمية</p>
+      </div>
+      <div class="grid grid-4">
+        <article class="card result-card">
+          <div class="rank-badge">الأول</div>
+          <h3>الطالبة: ريم السالم</h3>
+          <p>المعدل: 99.6%</p>
+          <span class="year">2024</span>
+        </article>
+        <article class="card result-card">
+          <div class="rank-badge">الثاني</div>
+          <h3>الطالب: عمر الخطيب</h3>
+          <p>المعدل: 99.4%</p>
+          <span class="year">2024</span>
+        </article>
+        <article class="card result-card">
+          <div class="rank-badge">الثالث</div>
+          <h3>الطالب: يزن العمري</h3>
+          <p>المعدل: 99.2%</p>
+          <span class="year">2024</span>
+        </article>
+        <article class="card result-card">
+          <div class="rank-badge">الأول/علمي</div>
+          <h3>الطالبة: هديل الرواشدة</h3>
+          <p>المعدل: 99.8%</p>
+          <span class="year">2023</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials section-padding" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>قصص نجاح طلابنا</h2>
+        <p>ما يقوله طلابنا عن تجربتهم مع وتد</p>
+      </div>
+      <div class="grid grid-2">
+        <blockquote>"وتد ساعدني أرتّب دراسة التوجيهي بخطة واضحة." — طالبة</blockquote>
+        <blockquote>"الدروس المسجلة وفّرت علي وقت وجهد." — طالب</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq section-padding" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <h2>الأسئلة الشائعة</h2>
+        <p>إجابات على أكثر الأسئلة شيوعاً</p>
+      </div>
+      <div style="max-width: 800px; margin: 0 auto;">
+        <details>
+          <summary>ما هو وتد؟</summary>
+          <p>منصة تعليم إلكتروني بدروس مباشرة ومسجلة واختبارات.</p>
+        </details>
+        <details>
+          <summary>كيف أشترك؟</summary>
+          <p>اختر البرنامج، أنشئ حسابًا، ثم اشترك بالخطة المناسبة.</p>
+        </details>
+        <details>
+          <summary>هل يوجد دعم للمغتربين؟</summary>
+          <p>نعم — لدينا قسم مخصّص وبرامج باللغة العربية مع شرح مبسّط.</p>
+        </details>
+        <p class="text-center" style="margin-top: var(--space-8);">
+          لم تجد إجابتك؟ <a class="btn btn-secondary" href="#contact">تواصل معنا</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners section-padding" id="partners">
+    <div class="container text-center">
+      <div class="section-header">
+        <h2>شركاؤنا في النجاح</h2>
+        <div class="badge">موثوق به من مدارس ومعلّمين في المنطقة</div>
+      </div>
+      <div class="partner-logos">
+        <img src="/assets/img/partners/bonat-al-azem.png" alt="Bonat Al azem Ideal School" loading="lazy" />
+        <img src="/assets/img/partners/al-khader-modern.png" alt="Al-Khader Modern Schools" loading="lazy" />
+        <img src="/assets/img/partners/partner1.svg" alt="Partner 1" loading="lazy" />
+        <img src="/assets/img/partners/partner2.svg" alt="Partner 2" loading="lazy" />
+        <img src="/assets/img/partners/partner3.svg" alt="Partner 3" loading="lazy" />
+        <img src="/assets/img/partners/partner4.svg" alt="Partner 4" loading="lazy" />
+        <img src="/assets/img/partners/partner5.svg" alt="Partner 5" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section class="apps section-padding" id="apps">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <h2>حمّل تطبيق وتد</h2>
+          <p>تابع دروسك من هاتفك — دروس مباشرة ومسجلة، اختبارات، وإشعارات.</p>
+          <div class="badges">
+            <a class="store" href="https://play.google.com/store/apps/details?id=com.watad.watad" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
+              </svg>
+              Google Play
+            </a>
+            <a class="store" href="#" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.09,16.67C20.06,16.74 19.67,18.11 18.71,19.5M13,3.5C13.73,2.67 14.94,2.04 15.94,2C16.07,3.17 15.6,4.35 14.9,5.19C14.21,6.04 13.07,6.7 11.95,6.61C11.8,5.46 12.36,4.26 13,3.5Z"/>
+              </svg>
+              App Store
+            </a>
+          </div>
+          <p style="font-size: var(--fs-sm); color: var(--ink-dim); margin-top: var(--space-4);">
+            التطبيق موثوق من آلاف الطلاب — انضم الآن
+          </p>
+        </div>
+        <div class="device-ph"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="market" id="market">
+    <div class="container text-center">
+      <h2>سوق ود</h2>
+      <p>منصة لبيع وشراء المستلزمات الدراسية والمحتوى التعليمي (قريبًا).</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#signup" data-track="waitlist">انضم لقائمة الانتظار</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-pos" id="cards">
+    <div class="container text-center">
+      <h2>نقاط بيع بطاقات وتد</h2>
+      <p>اعرف أقرب نقطة بيع لبطاقات وتد في مدينتك (خريطة و قائمة — قريبًا).</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#signup" data-track="waitlist">انضم لقائمة الانتظار</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container text-center">
+      <h2 class="text-balance">ابدأ رحلتك التعليمية الآن</h2>
+      <a class="btn btn-primary btn-lg" href="#signup">سجّل مجانًا</a>
+      <p class="subnote">جرب الآن بلا التزام. ألغِ بأي وقت.</p>
+    </div>
+  </section>
+
+  <footer class="site-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>وتد</h4>
+          <p>تعليم إلكتروني لكل المراحل.</p>
+        </div>
+        <div>
+          <h5>روابط</h5>
+          <ul>
+            <li><a href="#programs">البرامج</a></li>
+            <li><a href="#teachers">المدرسون</a></li>
+            <li><a href="#resources">الأسئلة والاختبارات</a></li>
+            <li><a href="#apps">التطبيقات</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>الدعم</h5>
+          <ul>
+            <li><a href="#faq">الأسئلة الشائعة</a></li>
+            <li><a href="#">سياسة الخصوصية</a></li>
+            <li><a href="#">الشروط والأحكام</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>تواصل</h5>
+          <p>support@watad.me</p>
+          <p>عمّان، الأردن</p>
+        </div>
+      </div>
+      <div class="copy">© وتد 2025</div>
+    </div>
+  </footer>
+
+  <!-- Sticky mobile CTA -->
+  <div class="sticky-cta" id="stickyCta" role="region" aria-label="دعوة للتسجيل على الهاتف">
+    <div class="wrap">
+      <div class="msg">ابدأ رحلتك التعليمية الآن</div>
+      <a class="btn btn-primary" href="#signup" data-track="sticky-start">ابدأ الآن</a>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // Enhanced navigation with scroll effects and active states
+  (function() {
+    const nav = document.querySelector('.topnav');
+    const links = Array.from(document.querySelectorAll('nav.menu a[href^="#"]'));
+    const targets = links.map(link => {
+      const id = link.getAttribute('href');
+      return document.querySelector(id);
+    }).filter(Boolean);
+
+    // Scroll effects
+    let ticking = false;
+    function updateNavOnScroll() {
+      if (window.scrollY > 20) {
+        nav?.classList.add('scrolled');
+      } else {
+        nav?.classList.remove('scrolled');
+      }
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateNavOnScroll);
+        ticking = true;
+      }
+    });
+
+    // Smooth scroll for anchor links
+    links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('href');
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Active state management with Intersection Observer
+    if ('IntersectionObserver' in window && targets.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const index = targets.indexOf(entry.target);
+          if (index === -1) return;
+          
+          const link = links[index];
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            links.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+          }
+        });
+      }, {
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: [0, 0.25, 0.5, 0.75, 1]
+      });
+
+      targets.forEach(target => observer.observe(target));
+    }
+  })();
+
+  // Analytics and performance tracking
+  (function() {
+    // Minimal dataLayer for tracking
+    window.dataLayer = window.dataLayer || [];
+    function track(event, payload) {
+      dataLayer.push({ event, ...payload });
+    }
+
+    // Track CTA clicks
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[data-track]');
+      if (!link) return;
+      
+      const trackingId = link.getAttribute('data-track');
+      const href = link.getAttribute('href');
+      
+      track('cta_click', { 
+        id: trackingId, 
+        href: href,
+        text: link.textContent.trim()
+      });
+
+      // Hide sticky CTA if user clicked sticky start
+      if (trackingId === 'sticky-start') {
+        localStorage.setItem('hideSticky', '1');
+      }
+    });
+
+    // Sticky CTA behavior
+    const stickyCta = document.getElementById('stickyCta');
+    if (stickyCta) {
+      // Hide if user previously dismissed
+      if (localStorage.getItem('hideSticky') === '1') {
+        stickyCta.style.display = 'none';
+        return;
+      }
+
+      // Hide sticky when near signup sections
+      const signupTriggers = document.querySelectorAll('.final-cta, [href="#signup"]');
+      if ('IntersectionObserver' in window && signupTriggers.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              stickyCta.style.opacity = '0';
+              stickyCta.style.pointerEvents = 'none';
+            } else {
+              stickyCta.style.opacity = '1';
+              stickyCta.style.pointerEvents = 'auto';
+            }
+          });
+        }, {
+          rootMargin: '0px 0px -70% 0px',
+          threshold: [0, 0.25]
+        });
+
+        signupTriggers.forEach(trigger => observer.observe(trigger));
+      }
+    }
+  })();
+
+  // Performance optimizations
+  (function() {
+    // Lazy load images that don't already have loading attribute
+    const images = document.querySelectorAll('img:not([loading])');
+    images.forEach(img => {
+      img.setAttribute('loading', 'lazy');
+      img.setAttribute('decoding', 'async');
+    });
+
+    // Preload critical resources
+    const criticalImages = [
+      'https://wiki.uhive.com/wp-content/uploads/2025/10/download-4.jpg',
+      'https://wiki.uhive.com/wp-content/uploads/2025/10/download-3.jpg'
+    ];
+
+    criticalImages.forEach(src => {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = src;
+      document.head.appendChild(link);
+    });
+
+    // Add loading states for dynamic content
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+    });
+
+    // Animate cards on scroll
+    if ('IntersectionObserver' in window) {
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        rootMargin: '0px 0px -10% 0px',
+        threshold: 0.1
+      });
+
+      cards.forEach(card => cardObserver.observe(card));
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      cards.forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      });
+    }
+  })();
+</script>
+
+<!-- Chat Widget -->
+<script src="https://ai.genie9.com/widget/loader.js" data-key="gw_ed738b072f1b2dfc164c4a210e0747f6" data-api-url="https://ai.genie9.com"></script>
+
+</body>
+</html>
